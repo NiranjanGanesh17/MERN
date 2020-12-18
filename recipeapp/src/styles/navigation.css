@@ -1,0 +1,35 @@
+#navigation{
+    height: 130px;
+    background-color:#fff;
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: center;
+    position:sticky;
+    overflow:hidden;
+    /* flex-wrap: wrap; */
+}
+#btn{
+    margin: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+#logo{
+    height:80%;
+}
+#subdiv1{
+     display: flex; 
+    align-items: flex-end; 
+    justify-content:flex-end;
+}
+
+@media screen and (max-width:768px){
+#subdiv1{
+display: flex;
+flex-direction: column;
+}
+#subdiv2{
+    display: flex;
+flex-direction: column;
+}
+}

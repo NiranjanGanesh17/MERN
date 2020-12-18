@@ -1,0 +1,19 @@
+#hiddenoptions1{
+    display: flex;
+    flex-direction: column;
+    /* border:2px solid red; */
+}
+
+#hiddendropdown{
+    height:80px;
+    width:200px;
+}
+#hiddenServings{
+    width:100%;
+}
+#hiddenDiet{
+    width:100%;
+}
+#hiddenTime{
+    width:100%;
+}
