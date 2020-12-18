@@ -5,10 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd recipeapp && npm  run build",
+    "build": "cd recipeapp && npm run build",
     "install-client": "cd recipeapp && npm install",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "recipeapp": "cd recipeapp && npm start"
   },
   "author": "Niranjan",
   "license": "ISC",

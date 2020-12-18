@@ -33,9 +33,9 @@ db.once('open', function () {
 //auto build for production
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('recipeapp/build'));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'recipeapp', 'build', 'index.html'))
-    })
+    // app.get('*', (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, 'recipeapp', 'build', 'index.html'))
+    // })
 }
 
 
@@ -134,7 +134,7 @@ app.post(('/content/delete'), async (req, res) => {
     const deleting = await Recipe.findByIdAndUpdate({ _id: recipe_id }, { $pull: { 'comments': { _id: comment_id } } }, { 'new': true })
     const details = await Recipe.findById({ _id: recipe_id })
     res.json(details)
-    // res.redirect("/content?" + id[0])
+
 })
 
 app.use(('/users'), users)
