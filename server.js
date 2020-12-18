@@ -30,13 +30,7 @@ db.once('open', function () {
     console.log("we're connected!")
 });
 
-//auto build for production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('recipeapp/build'));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'recipeapp', 'build', 'index.html'))
-    })
-}
+
 
 
 app.listen(port, () => console.log(`we are listening on the port..${port}`))
@@ -138,3 +132,12 @@ app.post(('/content/delete'), async (req, res) => {
 })
 
 app.use(('/users'), users)
+
+
+//auto build for production
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('recipeapp/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'recipeapp', 'build', 'index.html'))
+    })
+}
