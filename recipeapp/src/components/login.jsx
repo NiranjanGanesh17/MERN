@@ -63,10 +63,15 @@ function Login(props) {
         if (detail.username && detail.password && detail.email) {
             axios.post(`http://localhost:5000/users/signup`, detail)
                 .then((res) => {
-                    localStorage.setItem('token', res.data.token);
-                    props.history.push('/recipes'); toast('Registered')
+                    if (res.data === 'User Exists') {
+                        toast.error(res.data)
+                    }
+                    else {
+                        localStorage.setItem('token', res.data.token); dispatch({ type: 'isloggedin', value: true })
+                        props.history.push('/recipes'); toast.success('Registered')
+                    }
                 })
-                .catch((err) => { console.log() })
+                .catch((err) => { console.log(err) })
         }
         else { toast.error('Make Sure All Fields Are Filled') }
 

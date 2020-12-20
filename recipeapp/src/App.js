@@ -48,7 +48,7 @@ function App() {
         <Navigation />
         <div id='null'></div>
         <Switch>
-          <Route path='/' component={Home} />
+          <Route path='/' exact component={Home} />
           <Route path='/home' exact component={Home} />
           <Route path='/recipes' exact component={Recipes} />
           <Route path='/content' render={props => {

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useStateValue } from '../StateProvider';
 import { TextField } from '@material-ui/core';
 import { MdFavorite } from "react-icons/md";
+import { AiFillSound } from "react-icons/ai";
 
 
 
@@ -15,7 +16,9 @@ function Content() {
     const [remove, setRemove] = useState({ recipe_id: '', comment_id: '' })
     const [comment, setComment] = useState({ username: '', comment: '', id: '' });
     const [update, setUpdate] = useState({ comment: '', recipe_id: '', comment_id: '' })
-    const [likebtn, setLikebtn] = useState(false)
+    const [likebtn, setLikebtn] = useState(false);
+    const [voices, setVoices] = useState([]);
+    const [spk, setSpk] = useState(false);
     const [ingredients, setIngredients] = useState([]);
     const [photos, setPhotos] = useState({
         first: 'https://images.pexels.com/photos/2072162/pexels-photo-2072162.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200'
@@ -24,7 +27,19 @@ function Content() {
 
 
     useEffect(() => {
-        console.log(recipe)
+        const synth = window.speechSynthesis;
+        let voice = []
+        const getVoices = () => {
+            voice = synth.getVoices();
+            console.log(voice)
+            setVoices(voice)
+
+        }
+        getVoices();
+        if (synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = getVoices;
+        }
+
         imgs()
         console.log(photos.first)
         var spliting = () => {
@@ -74,6 +89,27 @@ function Content() {
 
     }
 
+    var speakIt = () => {
+
+        const synth = window.speechSynthesis;
+        setSpk(true)
+        if (synth.speaking) {
+            console.log('Already Speaking...')
+        }
+        const speakText = new SpeechSynthesisUtterance(recipe.Instructions)
+        console.log(voices[0])
+        speakText.voice = voices[0];
+        synth.speak(speakText);
+
+        speakText.onend = (e) => {
+            setSpk(false)
+            console.log('ended')
+        }
+        speakText.onerror = (e) => {
+            console.log('something went wrong')
+        }
+    }
+
     return (
 
         <React.Fragment>
@@ -107,7 +143,8 @@ function Content() {
                     <img src={photos.second} alt="img" /><br />
 
                     <div id="instructions">
-                        <h2>Instructions</h2>
+                        <span id='ins'>
+                            <h2>Instructions</h2>  <button onClick={speakIt} disabled={spk} class='btn btn-primary'  ><AiFillSound /></button></span>
                         <p>{recipe.Instructions}</p>
                     </div>
 
@@ -126,10 +163,10 @@ function Content() {
 
                             </div>
                             <div id="innercomment">
-                                {/* <label htmlFor="comment">Comment :</label> */}
+
                                 <TextField id="standard-basic" label="enter your comment" required type='text' onChange={(e) => setComment({ ...comment, comment: e.target.value })} />
-                                {/* <input type="text" name="comment" required placeholder='enter your comment' onChange={(e) => setComment({ ...comment, comment: e.target.value })} /> */}
-                            </div>
+
+                            </div><br />
 
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

@@ -9,28 +9,28 @@ var jwt = require('jsonwebtoken');
 
 
 router.post(('/signup'), async (req, res) => {
-    console.log(req.body)
-    try {
-        var { email } = req.body;
-        var { username } = req.body;
-        var { password } = req.body;
+
+    var { email } = req.body;
+    var { username } = req.body;
+    var { password } = req.body;
+
+    var check = await User.find({ email_id: email })
+    if (check.length == 0) {
         const user = new User({
             email_id: email, username: username
         })
 
-        console.log(user)
+        console.log('registeration success')
         await User.register(user, password)
         const getuser = await User.findOne({ email_id: email })
         const token = jwt.sign({ id: getuser._id }, 'jwtSecret')
         return res.json({ auth: true, token: token, user: getuser });
-
-    } catch (err) {
-        console.log(err.message)
-        if (err.message == 'A user with the given username is already registered') {
-            res.send(new Error({ message: 'Already registred', status_code: 409 }))
-        }
-        console.log(err.message)
     }
+    else { res.send('User Exists') }
+
+
+
+
 })
 
 

@@ -111,7 +111,7 @@ function Recipes() {
                         <div id="card" onClick={() => dispatch({ type: 'send', value: d })} onMouseOver={() => { setShow(true) }} onMouseOut={() => { setShow(false) }}>
 
 
-                            {show ? <React.Fragment ><Chart PrepTime={d.PrepTimeInMins} CookTime={d.CookTimeInMins} show={show} />
+                            {show ? <React.Fragment><Chart PrepTime={d.PrepTimeInMins} CookTime={d.CookTimeInMins} show={show} />
                                 <img src={d.image} id="foodimg" alt="image" /></React.Fragment> : <img src={d.image} id="foodimg" alt="image" />}
 
 

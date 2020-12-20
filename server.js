@@ -21,6 +21,7 @@ app.use(cors());
 
 const port = process.env.PORT || 5000;
 
+// mongodb://localhost:27017/updated
 
 mongoose.connect('mongodb+srv://Niro:niraNJAN123@cluster0.ndsay.mongodb.net/updated?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
@@ -87,7 +88,7 @@ app.get(('/like'), async (req, res) => {
     const updating = await Recipe.update({ _id: id[0] },
         { $set: { 'likes': likeupdate } })
     const details = await Recipe.findById({ _id: id[0] })
-    // res.send('done')
+
 })
 //Creating a comment (CREATE)
 app.post(('/content'), isLoggedIn, async (req, res) => {
@@ -95,7 +96,6 @@ app.post(('/content'), isLoggedIn, async (req, res) => {
     var username = (req.body.username)
     var comment = (req.body.comment)
     var detailsId = req.body.id;
-    // var user_id = req.userId
     console.log((req.userId))
     await Recipe.findByIdAndUpdate({ _id: detailsId },
         { $push: { "comments": { user_name: username, comment_body: comment, user_id: (req.userId) } } },

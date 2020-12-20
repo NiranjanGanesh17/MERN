@@ -71,14 +71,15 @@
     }
     #card{
 margin-left:10px;
+margin-top:20px;
 margin-bottom: 17px;
 font-size: 17px;
 font-weight: small;
-height:170px;
+height:200px; 
+width:290px;
 display: flex;
 flex-direction: row;
 justify-content:center;
-/* box-shadow: 10px 10px ; */
 align-items: center;
 text-align: center;
 flex-wrap: wrap;
@@ -91,13 +92,9 @@ flex-wrap: wrap;
    margin-bottom: 10px;
    object-fit: fill;
    border-radius: 55px;
-   /* box-shadow: 5px 10px #888888; */
     }
-    /* #foodimg:hover{
-        opacity:0.2;
-        background-color: #203A43;
-    } */
-  
+
+
     #link{
     font-weight: 20px;
     /* border:2px solid red; */
