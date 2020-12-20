@@ -14,7 +14,7 @@ function Home() {
 
     useEffect(() => {
 
-        const data = async () => await axios.get('http://localhost:5000/home').then((d) => { setData(d.data) })
+        const data = async () => await axios.get('/home').then((d) => { setData(d.data) })
         data();
 
     }, [recipe])

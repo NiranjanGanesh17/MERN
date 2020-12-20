@@ -93,10 +93,10 @@ flex-wrap: wrap;
    border-radius: 55px;
    /* box-shadow: 5px 10px #888888; */
     }
-    #foodimg:hover{
+    /* #foodimg:hover{
         opacity:0.2;
         background-color: #203A43;
-    }
+    } */
   
     #link{
     font-weight: 20px;

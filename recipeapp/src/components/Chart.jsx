@@ -1,6 +1,7 @@
 import React from 'react';
 import { Doughnut, Pie, Bar } from 'react-chartjs-2';
 
+
 function Chart({ PrepTime, CookTime, show }) {
     return (
         <React.Fragment>
@@ -8,7 +9,7 @@ function Chart({ PrepTime, CookTime, show }) {
             <div id='chart' >
                 <Pie
                     data={{
-                        labels: ['cooking-time', 'preperation-time'],
+                        labels: ['cooking-time/hr', 'preperation-time/hr'],
                         datasets: [
                             {
                                 label: 'Most liked Recipe',

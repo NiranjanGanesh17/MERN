@@ -113,24 +113,28 @@ function Login(props) {
                         <TextField id="standard-basic" label="username" fullWidth type='text' onChange={(e) => setDetail({ ...detail, username: e.target.value })} /><br />
 
                         <TextField id="standard-basic" label="password" fullWidth type='password' onChange={(e) => setDetail({ ...detail, password: e.target.value })} /> <br /><br />
-
-                        <button class="btn btn-primary" id='submit' type='submit'>Register</button>
-
-                    </form> </React.Fragment> : <React.Fragment><h2 id="simple-modal-title">Login</h2>  <span id="spaan"><p>New User?</p><a id="port" onClick={() => { setRegister(!register) }}>Create an account</a></span><form onSubmit={login} >
-
-                        <TextField id="standard-basic" label="email" type='email' fullWidth onChange={(e) => setDetail({ ...detail, email: e.target.value })} /><br />
-
-                        <TextField id="standard-basic" label="username" fullWidth type='text' onChange={(e) => setDetail({ ...detail, username: e.target.value })} /><br />
-
-                        <TextField id="standard-basic" label="password" fullWidth type='password' onChange={(e) => setDetail({ ...detail, password: e.target.value })} /> <br /><br />
                         <div id="btns">
-                            <button class="btn btn-primary" id='submit' type='submit'>Login</button>
+                            <button class="btn btn-primary" id='submit' type='submit'>Register</button>
 
                             <button id='home' onClick={() => { props.history.push('/home') }} class='btn btn-primary'>Home</button>
                         </div>
+                    </form> </React.Fragment> : <React.Fragment><h2 id="simple-modal-title">Login</h2>  <span id="spaan"><p>New User?</p><a id="port" onClick={() => { setRegister(!register) }}>Create an account</a></span>
+
+                            <form onSubmit={login} >
+
+                                <TextField id="standard-basic" label="email" type='email' fullWidth onChange={(e) => setDetail({ ...detail, email: e.target.value })} /><br />
+
+                                <TextField id="standard-basic" label="username" fullWidth type='text' onChange={(e) => setDetail({ ...detail, username: e.target.value })} /><br />
+
+                                <TextField id="standard-basic" label="password" fullWidth type='password' onChange={(e) => setDetail({ ...detail, password: e.target.value })} /> <br /><br />
+                                <div id="btns">
+                                    <button class="btn btn-primary" id='submit' type='submit'>Login</button>
+
+                                    <button id='home' onClick={() => { props.history.push('/home') }} class='btn btn-primary'>Home</button>
+                                </div>
 
 
-                    </form></React.Fragment>}
+                            </form></React.Fragment>}
 
 
                 </div>

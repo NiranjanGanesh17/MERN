@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from 'react';
 import "../styles/content.css";
 import axios from 'axios';
 import { useStateValue } from '../StateProvider';
-import { initialState } from './../Reducer';
 import { TextField } from '@material-ui/core';
 import { MdFavorite } from "react-icons/md";
 
@@ -82,23 +81,23 @@ function Content() {
             <div >
 
                 <div id='banner3'></div>
-                <div id='filter'></div>
+                <div id='filter'></div><br />
+                <div id="heading">
+                    <h2>{recipe.RecipeName}</h2>
+                </div>
                 <div id='display2'>
-                    <div id="heading">
-                        <h1>{recipe.RecipeName}</h1>
-                    </div>
+
 
                     <div id="subheading">
                         <span id='CD'>  <h4>{recipe.Course}</h4>
                             <h4>{recipe.Diet}</h4></span>
-
-                    </div>
+                    </div><br />
 
 
                     <img src={photos.first} alt="img" /><br />
                     <span>
                         <h2>Ingredients</h2>
-                    </span>
+                    </span><br />
                     <div id='ingredients'>
 
                         {ingredients.map((i) => { return <li>{i}</li> })}
@@ -136,7 +135,7 @@ function Content() {
                         </div>
                     </form>
 
-                    <div>
+                    <div><br />
                         <h5>Comments Section</h5>
                         <div id='comments_section'>
 
