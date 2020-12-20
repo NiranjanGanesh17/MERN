@@ -81,7 +81,7 @@ function Login(props) {
                 .then((res) => {
 
                     localStorage.setItem('token', res.data.token); dispatch({ type: 'isloggedin', value: true });
-                    toast.success('Successfully logged in')
+                    toast.success('Successfully logged In')
                     props.history.push('/recipes')
 
                 })
