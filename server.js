@@ -60,6 +60,11 @@ app.get(('/'), async (req, res) => {
     var result = shuffle.pick(re, { picks: 6 })
     res.json(result)
 });
+app.get(('*'), async (req, res) => {
+    var re = await Recipe.find({ likes: { $gt: 1 } })
+    var result = shuffle.pick(re, { picks: 6 })
+    res.json(result)
+});
 app.get(('/home'), async (req, res) => {
     var re = await Recipe.find({ likes: { $gt: 1 } })
     var result = shuffle.pick(re, { picks: 6 })
