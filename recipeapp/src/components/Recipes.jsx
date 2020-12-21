@@ -9,6 +9,7 @@ import Chart from '../components/Chart';
 import banner3 from '../images/banner3.jpg'
 import Model from './Model';
 import { motion } from 'framer-motion';
+import { pageVariants } from './Home';
 
 
 
@@ -65,7 +66,7 @@ function Recipes() {
     let paginator = (num) => setcurrentPage(num);
 
     return (
-        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+        <motion.div exit='out' animate='in' initial='out' variants={pageVariants}>
             <div id='banner1'>
                 <img id='bnr' src={banner3} alt="" />
             </div>

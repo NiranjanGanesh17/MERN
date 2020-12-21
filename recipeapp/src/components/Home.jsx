@@ -8,6 +8,21 @@ import homebanner from '../images/homebanner.jpg';
 import { motion } from 'framer-motion'
 
 
+//Framermotion
+export const pageVariants = {
+    in: {
+        opacity: 1,
+        y: 0,
+
+    },
+    out: {
+        opacity: 0,
+        y: '-100%',
+
+    }
+}
+
+
 function Home() {
 
     const [{ recipe }, dispatch] = useStateValue();
@@ -22,7 +37,7 @@ function Home() {
     }, [recipe])
 
     return (
-        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} >
+        <motion.div exit='out' animate='in' initial='out' variants={pageVariants} >
             <div id='banner'>
                 <img id='bnr' src={homebanner} alt="" />
             </div>

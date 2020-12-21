@@ -48,7 +48,7 @@ function App() {
       <div className="App">
         <Navigation />
         <div id='null'></div>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/home' exact component={Home} />

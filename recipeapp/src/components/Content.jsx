@@ -10,6 +10,7 @@ import contentpg from '../images/contentpg.jpg';
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { motion } from 'framer-motion';
+import { pageVariants } from './Home';
 
 
 
@@ -119,7 +120,7 @@ function Content() {
 
 
 
-        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} >
+        <motion.div exit='out' animate='in' initial='out' variants={pageVariants}>
 
             <div id='banner3'>
                 <img id="bnr" src={contentpg} alt="" />

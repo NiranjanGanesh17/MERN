@@ -1,11 +1,12 @@
 import React from 'react';
 import '../styles/about.css';
 import abtpg1 from '../images/abtpg1.jpg';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
+import { pageVariants } from './Home';
 
 function About() {
     return (
-        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+        <motion.div exit='out' animate='in' initial='out' variants={pageVariants}>
             <div id='bannerabt'>
                 <img id='bnr' src={abtpg1} alt="" />
             </div>
