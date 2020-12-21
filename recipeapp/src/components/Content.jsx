@@ -9,6 +9,7 @@ import { AiFillSound } from "react-icons/ai";
 import contentpg from '../images/contentpg.jpg';
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { motion } from 'framer-motion';
 
 
 
@@ -116,96 +117,96 @@ function Content() {
 
     return (
 
-        <React.Fragment>
 
-            <div >
 
-                <div id='banner3'>
-                    <img id="bnr" src={contentpg} alt="" />
+        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} >
+
+            <div id='banner3'>
+                <img id="bnr" src={contentpg} alt="" />
+            </div>
+            <div id='filter'></div><br />
+            <div id="heading">
+                <h2>{recipe.RecipeName}</h2>
+            </div>
+            <div id='display2'>
+
+
+                <div id="subheading">
+                    <span id='CD'>  <h4>{recipe.Course}</h4>
+                        <h4>{recipe.Diet}</h4></span>
+                </div><br />
+
+
+                <img src={photos.first} alt="img" /><br />
+                <span>
+                    <h2>Ingredients</h2>
+                </span><br />
+                <div id='ingredients'>
+
+                    {ingredients.map((i) => { return <li>{i}</li> })}
+
+                </div><br />
+
+                <img src={photos.second} alt="img" /><br />
+
+                <div id="instructions">
+                    <span id='ins'>
+                        <h2>Instructions</h2>  <button onClick={speakIt} disabled={spk} class='btn btn-primary'  ><AiFillSound /></button></span>
+                    <p>{recipe.Instructions}</p>
                 </div>
-                <div id='filter'></div><br />
-                <div id="heading">
-                    <h2>{recipe.RecipeName}</h2>
-                </div>
-                <div id='display2'>
+
+                <hr />
+                <span id="like"><button class={likebtn ? "btn btn-danger" : "btn btn-primary"} disabled={likebtn} onClick={postLike}>like   <MdFavorite /></button>
+
+                </span><br />
+
+                <form id="comment_form" onSubmit={createComment}>
+
+                    <div id="addcomments">
+                        <h4>Comments </h4>
+                        <div id="innercomment">
+
+                            <TextField id="standard-basic" label="enter your name" required type='text' onChange={(e) => setComment({ ...comment, username: session.user.username })} /><br />
+
+                        </div>
+                        <div id="innercomment">
+
+                            <TextField id="standard-basic" label="enter your comment" required type='text' onChange={(e) => setComment({ ...comment, comment: e.target.value })} />
+
+                        </div><br />
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+                <div><br />
+                    <h5>Comments Section</h5>
+                    <div id='comments_section'>
+
+                        {recipe.comments.map((one) => {
+
+                            if ((one.user_name && one.comment_body) !== '') {
+                                return <div id='inner_comments_section' class="col-lg-3 col-md-6  col-sm-6 col-xs-6">
+                                    <p key={one._id}>{one.user_name}</p>
+                                    <p>{one.comment_body}</p>
+                                    {(session.user.username === one.user_name) ? <span id="btns">  <div id='editsection'> <TextField id="standard-basic" label="edit your comment" required type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} />
+                                        <button class='btn btn-primary' id="editbtn" onClick={updateComment}><FaTelegramPlane /></button>
+                                    </div>  <button id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} ><FaTrash /></button></span> : <span id="btns">
+                                            <div id='editsection'> <TextField id="standard-basic" label="edit your comment" required disabled type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} />
+                                                <button class='btn btn-primary' disabled id="editbtn" onClick={updateComment}><FaTelegramPlane /></button>
+                                            </div> <button disabled id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} ><FaTrash /></button></span>}
+                                </div>
+                            }
 
 
-                    <div id="subheading">
-                        <span id='CD'>  <h4>{recipe.Course}</h4>
-                            <h4>{recipe.Diet}</h4></span>
-                    </div><br />
-
-
-                    <img src={photos.first} alt="img" /><br />
-                    <span>
-                        <h2>Ingredients</h2>
-                    </span><br />
-                    <div id='ingredients'>
-
-                        {ingredients.map((i) => { return <li>{i}</li> })}
-
-                    </div><br />
-
-                    <img src={photos.second} alt="img" /><br />
-
-                    <div id="instructions">
-                        <span id='ins'>
-                            <h2>Instructions</h2>  <button onClick={speakIt} disabled={spk} class='btn btn-primary'  ><AiFillSound /></button></span>
-                        <p>{recipe.Instructions}</p>
+                        })}
                     </div>
 
-                    <hr />
-                    <span id="like"><button class={likebtn ? "btn btn-danger" : "btn btn-primary"} disabled={likebtn} onClick={postLike}>like   <MdFavorite /></button>
 
-                    </span><br />
-
-                    <form id="comment_form" onSubmit={createComment}>
-
-                        <div id="addcomments">
-                            <h4>Comments </h4>
-                            <div id="innercomment">
-
-                                <TextField id="standard-basic" label="enter your name" required type='text' onChange={(e) => setComment({ ...comment, username: session.user.username })} /><br />
-
-                            </div>
-                            <div id="innercomment">
-
-                                <TextField id="standard-basic" label="enter your comment" required type='text' onChange={(e) => setComment({ ...comment, comment: e.target.value })} />
-
-                            </div><br />
-
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-
-                    <div><br />
-                        <h5>Comments Section</h5>
-                        <div id='comments_section'>
-
-                            {recipe.comments.map((one) => {
-
-                                if ((one.user_name && one.comment_body) !== '') {
-                                    return <div id='inner_comments_section' class="col-lg-3 col-md-6  col-sm-6 col-xs-6">
-                                        <p key={one._id}>{one.user_name}</p>
-                                        <p>{one.comment_body}</p>
-                                        {(session.user.username === one.user_name) ? <span id="btns">  <div id='editsection'> <TextField id="standard-basic" label="edit your comment" required type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} />
-                                            <button class='btn btn-primary' id="editbtn" onClick={updateComment}><FaTelegramPlane /></button>
-                                        </div>  <button id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} ><FaTrash /></button></span> : <span id="btns">
-                                                <div id='editsection'> <TextField id="standard-basic" label="edit your comment" required disabled type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} />
-                                                    <button class='btn btn-primary' disabled id="editbtn" onClick={updateComment}><FaTelegramPlane /></button>
-                                                </div> <button disabled id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} ><FaTrash /></button></span>}
-                                    </div>
-                                }
-
-
-                            })}
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
-        </React.Fragment>
+        </motion.div>
+
     )
 }
 

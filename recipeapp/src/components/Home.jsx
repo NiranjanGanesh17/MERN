@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 import homebanner from '../images/homebanner.jpg';
+import { motion } from 'framer-motion'
 
 
 function Home() {
@@ -21,7 +22,7 @@ function Home() {
     }, [recipe])
 
     return (
-        <div >
+        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} >
             <div id='banner'>
                 <img id='bnr' src={homebanner} alt="" />
             </div>
@@ -38,7 +39,7 @@ function Home() {
 
             </div>
 
-        </div>
+        </motion.div>
 
 
     )

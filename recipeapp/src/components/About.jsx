@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/about.css';
 import abtpg1 from '../images/abtpg1.jpg';
+import { motion } from 'framer-motion'
 
 function About() {
     return (
-        <div>
+        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
             <div id='bannerabt'>
                 <img id='bnr' src={abtpg1} alt="" />
             </div>
@@ -21,7 +22,7 @@ function About() {
                 </p>
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 

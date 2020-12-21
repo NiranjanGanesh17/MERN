@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { useContext, useReducer, useEffect } from 'react';
 import axios from 'axios';
 import { useStateValue } from './StateProvider';
+import { AnimatePresence } from 'framer-motion'
 import About from './components/About';
 
 
@@ -47,18 +48,20 @@ function App() {
       <div className="App">
         <Navigation />
         <div id='null'></div>
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/home' exact component={Home} />
-          <Route path='/recipes' exact component={Recipes} />
-          <Route path='/content' render={props => {
-            if (!session.auth) return <Redirect to='/Login' />;
-            return <Content {...props} />;
-          }} />
-          <Route path='/Login' exact component={Login} />
-          <Route path='/Logout' exact component={Logout} />
-          <Route path='/about' exact component={About} />
-        </Switch>
+        <AnimatePresence>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/home' exact component={Home} />
+            <Route path='/recipes' exact component={Recipes} />
+            <Route path='/content' render={props => {
+              if (!session.auth) return <Redirect to='/Login' />;
+              return <Content {...props} />;
+            }} />
+            <Route path='/Login' exact component={Login} />
+            <Route path='/Logout' exact component={Logout} />
+            <Route path='/about' exact component={About} />
+          </Switch>
+        </AnimatePresence>
       </div>
     </Router>
 

@@ -8,6 +8,7 @@ import { useStateValue } from '../StateProvider';
 import Chart from '../components/Chart';
 import banner3 from '../images/banner3.jpg'
 import Model from './Model';
+import { motion } from 'framer-motion';
 
 
 
@@ -64,7 +65,7 @@ function Recipes() {
     let paginator = (num) => setcurrentPage(num);
 
     return (
-        <div>
+        <motion.div exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
             <div id='banner1'>
                 <img id='bnr' src={banner3} alt="" />
             </div>
@@ -124,7 +125,7 @@ function Recipes() {
             </div>
             <div id="footer"><Paginate postsPerPage={postsPerPage} totalPosts={data.length} paginator={paginator} /></div>
 
-        </div >
+        </motion.div >
     )
 }
 
