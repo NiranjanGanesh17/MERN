@@ -100,8 +100,21 @@
     flex-direction: column;
     margin:5px;
 }
+#editsection{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    margin-right:10px;
+    justify-content: space-between;
+    /* border:2px solid red; */
+    /* margin:5px */
+}
 #editbtn{
-    width: 60px;
+    width: 40px;
+    transform: translateY(10px);
+    height:30px;
+     margin-left:3px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,10 +125,19 @@
     align-items: center;
     justify-content: center;
 }
+#remove{
+    height:30px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    transform: translateY(5px);
+    justify-content: center;
+}
 #btns{
     display: flex;
     justify-content: space-between;
     margin-bottom: 7px;
+    
 }
 #bnr{
     display: none;
@@ -126,7 +148,7 @@
     width:100%;
 }
 #bnr{
-    display: inline;
+    display: block;
 }
 #banner3{
     z-index: 1;
@@ -141,6 +163,7 @@
     transform: translateY(10px);
     margin:0;
 }
+
 
 #display2{
     

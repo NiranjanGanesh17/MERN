@@ -42,7 +42,7 @@ function App() {
 
 
   return (
-    // <recipeDetails.Provider value={{ value, dispatch }}>
+
     <Router>
       <div className="App">
         <Navigation />
@@ -52,7 +52,7 @@ function App() {
           <Route path='/home' exact component={Home} />
           <Route path='/recipes' exact component={Recipes} />
           <Route path='/content' render={props => {
-            if (!session) return <Redirect to='/Login' />;
+            if (!session.auth) return <Redirect to='/Login' />;
             return <Content {...props} />;
           }} />
           <Route path='/Login' exact component={Login} />

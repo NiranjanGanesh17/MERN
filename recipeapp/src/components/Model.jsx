@@ -49,7 +49,7 @@ function Model({ handleData, setServings, setDiet, setTime, open, handleClose })
 
                     <form id="options2" onSubmit={handleData}  >
                         <div id="hiddendropdown">
-                            {/* <label id='lbl' for="">servings</label> */}
+
                             <select name="servings" class="btn btn-default dropdown-toggle" id="hiddenServings" onChange={(e) => setServings(e.target.value)} >
                                 <option active>Servings</option>
                                 <option value="2">2</option>
@@ -60,7 +60,7 @@ function Model({ handleData, setServings, setDiet, setTime, open, handleClose })
                             </select>
                         </div>
                         <div id="hiddendropdown">
-                            {/* <label id='lbl' for="">Diet</label> */}
+
                             <select name="diet" aria-expanded="true" class="btn btn-default dropdown-toggle" id="hiddenDiet" onChange={(e) => setDiet(e.target.value)}>
                                 <option active>Diet</option>
                                 <option value="Vegetarian"> Vegetarian</option>
@@ -69,7 +69,7 @@ function Model({ handleData, setServings, setDiet, setTime, open, handleClose })
                             </select>
                         </div>
                         <div id="hiddendropdown">
-                            {/* <label id='lbl' for="">preparation time</label> */}
+
                             <select name="time" class="btn btn-default dropdown-toggle" id="hiddenTime" onChange={(e) => setTime(e.target.value)}>
                                 <option active>Time</option>
                                 <option value="20-30">20-30 MINS</option>

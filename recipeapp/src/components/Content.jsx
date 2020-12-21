@@ -7,6 +7,8 @@ import { TextField } from '@material-ui/core';
 import { MdFavorite } from "react-icons/md";
 import { AiFillSound } from "react-icons/ai";
 import contentpg from '../images/contentpg.jpg';
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 
 
@@ -17,6 +19,7 @@ function Content() {
     const [remove, setRemove] = useState({ recipe_id: '', comment_id: '' })
     const [comment, setComment] = useState({ username: '', comment: '', id: '' });
     const [update, setUpdate] = useState({ comment: '', recipe_id: '', comment_id: '' })
+    const [edit, setEdit] = useState(false);
     const [likebtn, setLikebtn] = useState(false);
     const [voices, setVoices] = useState([]);
     const [spk, setSpk] = useState(false);
@@ -162,7 +165,7 @@ function Content() {
                             <h4>Comments </h4>
                             <div id="innercomment">
 
-                                <TextField id="standard-basic" label="enter your name" required type='text' onChange={(e) => setComment({ ...comment, username: e.target.value })} /><br />
+                                <TextField id="standard-basic" label="enter your name" required type='text' onChange={(e) => setComment({ ...comment, username: session.user.username })} /><br />
 
                             </div>
                             <div id="innercomment">
@@ -185,11 +188,12 @@ function Content() {
                                     return <div id='inner_comments_section' class="col-lg-3 col-md-6  col-sm-6 col-xs-6">
                                         <p key={one._id}>{one.user_name}</p>
                                         <p>{one.comment_body}</p>
-                                        <TextField id="standard-basic" label="edit your comment" required type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} /><br />
-                                        {/* <input type="text" name="edit" id="edit" required placeholder="edit your comment" onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} /><br /> */}
-                                        <span id="btns"><button id="editbtn" class="btn btn-primary" onClick={updateComment}>Edit</button>
-                                            <button id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} >Delete</button></span>
-
+                                        {(session.user.username === one.user_name) ? <span id="btns">  <div id='editsection'> <TextField id="standard-basic" label="edit your comment" required type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} />
+                                            <button class='btn btn-primary' id="editbtn" onClick={updateComment}><FaTelegramPlane /></button>
+                                        </div>  <button id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} ><FaTrash /></button></span> : <span id="btns">
+                                                <div id='editsection'> <TextField id="standard-basic" label="edit your comment" required disabled type='text' onChange={(e) => { setUpdate({ ...update, comment: e.target.value, comment_id: one._id }) }} />
+                                                    <button class='btn btn-primary' disabled id="editbtn" onClick={updateComment}><FaTelegramPlane /></button>
+                                                </div> <button disabled id="remove" class="btn btn-danger" value={one._id} onClick={removeComment} ><FaTrash /></button></span>}
                                     </div>
                                 }
 

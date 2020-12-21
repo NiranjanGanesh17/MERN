@@ -1,6 +1,7 @@
 export const initialState = {
     recipe: '',
     session: false,
+
 }
 
 function reducer(initialState, action) {

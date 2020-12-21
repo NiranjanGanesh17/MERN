@@ -84,8 +84,8 @@ function Login(props) {
             console.log((detail))
             axios.post('/users/login', detail)
                 .then((res) => {
-
-                    localStorage.setItem('token', res.data.token); dispatch({ type: 'isloggedin', value: true });
+                    console.log(res.data)
+                    localStorage.setItem('token', res.data.token); dispatch({ type: 'isloggedin', value: res.data });
                     toast.success('Successfully logged In')
                     props.history.push('/recipes')
 

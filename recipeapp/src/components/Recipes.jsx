@@ -84,7 +84,7 @@ function Recipes() {
                         </select>
                     </div>
                     <div id="dropdown">
-                        {/* <label id='lbl' for="">Diet</label> */}
+
                         <select name="diet" aria-expanded="true" class="btn btn-default dropdown-toggle" id="Diet" onChange={(e) => setDiet(e.target.value)}>
                             <option active>Diet</option>
                             <option value="Vegetarian"> Vegetarian</option>
