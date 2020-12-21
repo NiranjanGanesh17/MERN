@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
+import homebanner from '../images/homebanner.jpg';
 
 
 function Home() {
@@ -21,7 +22,9 @@ function Home() {
 
     return (
         <div >
-            <div id='banner'></div>
+            <div id='banner'>
+                <img id='bnr' src={homebanner} alt="" />
+            </div>
             <div id='filter'><h4>MOST LIKED RECIPES</h4></div>
 
             <div id='display'>

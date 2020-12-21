@@ -117,11 +117,31 @@
     justify-content: space-between;
     margin-bottom: 7px;
 }
+#bnr{
+    display: none;
+}
 @media screen and (max-width:768px){
     #heading{
     font-size: 14px;
     width:100%;
 }
+#bnr{
+    display: inline;
+}
+#banner3{
+    z-index: 1;
+    opacity: 1;
+    background-image: none;
+    /* background-image: url('../images/contentpg.jpg'); */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    height:90vh;
+    transform: translateY(10px);
+    margin:0;
+}
+
 #display2{
     
         display: flex;

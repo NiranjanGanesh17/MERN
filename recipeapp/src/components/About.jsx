@@ -1,10 +1,13 @@
 import React from 'react';
 import '../styles/about.css';
+import abtpg1 from '../images/abtpg1.jpg';
 
 function About() {
     return (
         <div>
-            <div id='bannerabt'></div>
+            <div id='bannerabt'>
+                <img id='bnr' src={abtpg1} alt="" />
+            </div>
             <div id='filter'><h4>ABOUT US</h4></div>
             <div id="abt">
                 <h3>

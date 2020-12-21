@@ -6,6 +6,7 @@ import Paginate from './Paginate';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 import Chart from '../components/Chart';
+import banner3 from '../images/banner3.jpg'
 import Model from './Model';
 
 
@@ -64,7 +65,9 @@ function Recipes() {
 
     return (
         <div>
-            <div id='banner1'></div>
+            <div id='banner1'>
+                <img id='bnr' src={banner3} alt="" />
+            </div>
             <div id='filter1'>
                 <select onClick={handleClose} id='hiddenbtn' name='Filter Recipes' class="btn btn-default dropdown-toggle"> <option id='hiddenoption' active>Filter Recipes</option></select>
                 <Model handleData={handleData} handleClose={handleClose} setServings={setServings} setDiet={setDiet} setTime={setTime} open={open} />

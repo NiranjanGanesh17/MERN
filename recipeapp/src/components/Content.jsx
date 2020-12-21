@@ -6,6 +6,7 @@ import { useStateValue } from '../StateProvider';
 import { TextField } from '@material-ui/core';
 import { MdFavorite } from "react-icons/md";
 import { AiFillSound } from "react-icons/ai";
+import contentpg from '../images/contentpg.jpg';
 
 
 
@@ -116,7 +117,9 @@ function Content() {
 
             <div >
 
-                <div id='banner3'></div>
+                <div id='banner3'>
+                    <img src={contentpg} alt="" />
+                </div>
                 <div id='filter'></div><br />
                 <div id="heading">
                     <h2>{recipe.RecipeName}</h2>
