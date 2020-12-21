@@ -37,7 +37,7 @@ function Recipes() {
     useEffect(() => {
         const info = async () => {
 
-            let d = await axios.post(`http://localhost:5000/recipes?${diet}&${servings}&${time}`);
+            let d = await axios.post(`/recipes?${diet}&${servings}&${time}`);
             setData(d.data)
         }
 

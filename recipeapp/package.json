@@ -1,7 +1,7 @@
 {
   "name": "recipeapp",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.6",
@@ -28,6 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000",
   "resolutions": {
     "graceful-fs": "4.2.4"
   },
@@ -48,6 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
