@@ -70,22 +70,22 @@ function Content() {
 
     var createComment = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/content', comment).then((res) => { dispatch({ type: 'send', value: res.data }) })
+        axios.post('/content', comment).then((res) => { dispatch({ type: 'send', value: res.data }) })
     }
 
     var postLike = () => {
         setLikebtn(true)
-        axios.get(`http://localhost:5000/like?${recipe._id}`).then((res) => { dispatch({ type: 'send', value: res.data }) })
+        axios.get(`/like?${recipe._id}`).then((res) => { dispatch({ type: 'send', value: res.data }) })
     }
 
     var updateComment = () => {
-        axios.post('http://localhost:5000/content/update', update).then((res) => { dispatch({ type: 'send', value: res.data }) })
+        axios.post('/content/update', update).then((res) => { dispatch({ type: 'send', value: res.data }) })
     }
 
     var removeComment = (e) => {
         console.log(e.target.value)
         setRemove({ ...remove, comment_id: e.target.value })
-        axios.post('http://localhost:5000/content/delete', remove).then((res) => { dispatch({ type: 'send', value: res.data }) })
+        axios.post('/content/delete', remove).then((res) => { dispatch({ type: 'send', value: res.data }) })
 
     }
 
