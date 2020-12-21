@@ -118,7 +118,7 @@ function Content() {
             <div >
 
                 <div id='banner3'>
-                    <img src={contentpg} alt="" />
+                    <img id="bnr" src={contentpg} alt="" />
                 </div>
                 <div id='filter'></div><br />
                 <div id="heading">
