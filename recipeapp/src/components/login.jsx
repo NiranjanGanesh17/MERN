@@ -61,7 +61,7 @@ function Login(props) {
     let userRegister = (e) => {
         e.preventDefault()
         if (detail.username && detail.password && detail.email) {
-            axios.post(`http://localhost:5000/users/signup`, detail)
+            axios.post(`/users/signup`, detail)
                 .then((res) => {
                     if (res.data === 'User Exists') {
                         toast.error(res.data)
@@ -82,7 +82,7 @@ function Login(props) {
 
         if (detail.username && detail.password && detail.email) {
             console.log((detail))
-            axios.post('http://localhost:5000/users/login', detail)
+            axios.post('/users/login', detail)
                 .then((res) => {
 
                     localStorage.setItem('token', res.data.token); dispatch({ type: 'isloggedin', value: true });
