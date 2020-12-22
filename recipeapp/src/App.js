@@ -50,7 +50,7 @@ function App() {
         <div id='null'></div>
         <AnimatePresence exitBeforeEnter>
           <Switch>
-            <Route path='/' exact component={Home} />
+
             <Route path='/home' exact component={Home} />
             <Route path='/recipes' exact component={Recipes} />
             <Route path='/content' render={props => {
@@ -60,6 +60,7 @@ function App() {
             <Route path='/Login' exact component={Login} />
             <Route path='/Logout' exact component={Logout} />
             <Route path='/about' exact component={About} />
+            <Redirect from='/' to='/home' />
           </Switch>
         </AnimatePresence>
       </div>
